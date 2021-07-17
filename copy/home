@@ -1,0 +1,414 @@
+import React from 'react'
+import { SafeAreaView, 
+         View, 
+         Text, 
+         Image, 
+         StyleSheet, 
+         TouchableOpacity, 
+         FlatList} from 'react-native'
+
+import { COLORS, FONTS, icons, images, SIZES } from "../constants"
+
+const Home = ({navigation}) => {
+
+    const categoryData = [
+        {
+            id: 1,
+            name: "Cake",
+            icon: icons.cake,
+        },
+        {
+            id: 2,
+            name: "Cookies",
+            icon: icons.cookies,
+        },
+        {
+            id: 3,
+            name: "Brownies",
+            icon: icons.brownie,
+        },
+        {
+            id: 4,
+            name: "Waffles",
+            icon: icons.waffle,
+        },
+        {
+            id: 5,
+            name: "Cupcakes",
+            icon: icons.cupcake,
+        },
+        {
+            id: 6,
+            name: "roll",
+            icon: icons.roll,
+        },
+        {
+            id: 7,
+            name: "donut",
+            icon: icons.donut,
+        },
+        {
+            id: 8,
+            name: "pie",
+            icon: icons.pie,
+        },
+    ]
+
+        // price rating
+        const affordable = 1
+        const fairPrice = 2
+        const expensive = 3
+
+        const restaurantData = [
+            {
+                id: 1,
+                name: "Chocolate Cake",
+                categories: [1],
+                priceRating: affordable,
+                photo: images.cake,
+                duration: "With blow",
+                details:"rice four",
+
+                menu: [
+                    {
+                        menuId: 1,
+                        name: "Apple Pie",
+                        photo: images.apple_pie,
+                        detail: "Burger with crispy chicken, cheese and lettuce",
+                        icon: icons.star,
+                        ingredient:['suga - 1 tsp','\n','pumpkin - 1/2'],
+                        description:[ "Cook beans in medium saucepan of boiling salted water until crisp-tender, about 5 minutes. Rinse under cold water. Cut into 2-inch pieces. Using julienne peeler, peel enough papaya to measure 6 cups. Place in large bowl. Add tomatoes, cilantro, green onions, chile, and green beans. Pour dressing over; toss. Sprinkle peanuts over and serve. Cook beans in medium saucepan of boiling salted water until crisp-tender, about 5 minutes. Rinse under cold water. Cut into 2-inch pieces. Using julienne peeler, peel enough papaya to measure 6 cups. Place in large bowl. Add tomatoes, cilantro, green onions, chile, and green beans. Pour dressing over; toss. Sprinkle peanuts over and serve.",
+                    ]
+                    },
+                ]
+
+            },
+            {
+                id: 2,
+                name: "cookie",
+                categories: [2],
+                priceRating: affordable,
+                photo: images.cookies,
+                duration: "With blow",
+                details:"rice four",
+
+                menu: [
+                    {
+                        menuId: 1,
+                        name: "Apple Pie",
+                        photo: images.apple_pie,
+                        detail: "Burger with crispy chicken, cheese and lettuce",
+                        icon: icons.star,
+                        ingredient:['suga - 1 tsp','\n','pumpkin - 1/2'],
+                        description:[ "Cook beans in medium saucepan of boiling salted water until crisp-tender, about 5 minutes. Rinse under cold water. Cut into 2-inch pieces. Using julienne peeler, peel enough papaya to measure 6 cups. Place in large bowl. Add tomatoes, cilantro, green onions, chile, and green beans. Pour dressing over; toss. Sprinkle peanuts over and serve. Cook beans in medium saucepan of boiling salted water until crisp-tender, about 5 minutes. Rinse under cold water. Cut into 2-inch pieces. Using julienne peeler, peel enough papaya to measure 6 cups. Place in large bowl. Add tomatoes, cilantro, green onions, chile, and green beans. Pour dressing over; toss. Sprinkle peanuts over and serve.",
+                    ]
+                    },
+                ]
+
+            },
+            {
+                id: 3,
+                name: "brownie",
+                categories: [3],
+                priceRating: affordable,
+                photo: images.brownies,
+                duration: "With blow",
+                details:"rice four",
+
+                menu: [
+                    {
+                        menuId: 1,
+                        name: "Apple Pie",
+                        photo: images.apple_pie,
+                        detail: "Burger with crispy chicken, cheese and lettuce",
+                        icon: icons.star,
+                        ingredient:['suga - 1 tsp','\n','pumpkin - 1/2'],
+                        description:[ "Cook beans in medium saucepan of boiling salted water until crisp-tender, about 5 minutes. Rinse under cold water. Cut into 2-inch pieces. Using julienne peeler, peel enough papaya to measure 6 cups. Place in large bowl. Add tomatoes, cilantro, green onions, chile, and green beans. Pour dressing over; toss. Sprinkle peanuts over and serve. Cook beans in medium saucepan of boiling salted water until crisp-tender, about 5 minutes. Rinse under cold water. Cut into 2-inch pieces. Using julienne peeler, peel enough papaya to measure 6 cups. Place in large bowl. Add tomatoes, cilantro, green onions, chile, and green beans. Pour dressing over; toss. Sprinkle peanuts over and serve.",
+                    ]
+                    },
+                ]
+
+            },
+        ]
+
+    const [categories, setCategories] = React.useState(categoryData)
+    const [selectedCategory, setSelectedCategory] = React.useState(null)
+    const [restaurants, setRestaurants] = React.useState(restaurantData)
+
+    function onSelectCategory(category) {
+        //filter restaurant
+        let restaurantList = restaurantData.filter(a => a.categories.includes(category.id))
+
+        setRestaurants(restaurantList)
+
+        setSelectedCategory(category)
+    }
+
+    function getCategoryNameById(id) {
+        let category = categories.filter(a => a.id == id)
+
+        if (category.length > 0)
+            return category[0].name
+
+        return ""
+    }
+
+    function renderHeader() {
+        return(
+            <View style={{ flexDirection: 'row', height: 50}}>
+                <TouchableOpacity
+                    style={{
+                        width: 50,
+                        paddingLeft: SIZES.padding * 2,
+                        justifyContent: 'center'
+                    }}
+                >
+                    <Image 
+                        source={icons.nearby}
+                        resizeMode="contain"
+                        style={{
+                            width: 30,
+                            height: 30
+                        }}
+                    />
+                </TouchableOpacity>
+
+                <View style={{ flex:1, alignItems:'center', justifyContent:'center', marginTop:5}}>
+                    <View
+                        style={{
+                            width: '70%',
+                            height: "100%",
+                            backgroundColor: COLORS.tortilla,
+                            alignItems:'center',
+                            justifyContent:'center',
+                            borderRadius: SIZES.radius
+                        }}
+                    >
+                        <Text style={{...FONTS.h4}}> Apication </Text>
+                    </View>
+                </View>
+
+                <TouchableOpacity
+                    style={{
+                        width: 50,
+                        paddingRight: SIZES.padding * 2,
+                        justifyContent: 'center'
+                    }}
+                >
+                    <Image
+                    source={icons.basket}
+                    resizeMode="contain"
+                    style={{
+                        width: 30,
+                        height: 30
+                    }}
+                    />
+                </TouchableOpacity>
+            </View>
+        )
+    }
+
+    function renderMainCategories() {
+        const renderItem = ({item}) => {
+            return (
+                <TouchableOpacity
+                    style={{
+                        padding: SIZES.padding,
+                        paddingBottom: SIZES.padding * 2,
+                        backgroundColor: (selectedCategory ?.id == item.id) ? COLORS.rose : COLORS.tortilla,
+                        borderRadius: SIZES.radius,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginRight: SIZES.padding,
+                        ...styles.shadow
+                    }}
+                    onPress={() => onSelectCategory(item)}
+                >
+                    <View
+                        style={{
+                            width: 50,
+                            height: 50,
+                            borderRadius: 25,
+                            alignItems: "center",
+                            justifyContent: "center",
+                            backgroundColor: (selectedCategory ?.id == item.id) ? COLORS.tortilla : COLORS.daisy
+                        }}
+                    >
+                        <Image 
+                            source={item.icon}
+                            resizeMode="contain"
+                            style={{
+                                width: 30,
+                                height: 30,
+                            }}
+                        />
+                    </View>
+                        
+                    <Text
+                        style={{
+                            marginTop: SIZES.padding,
+                            color: (selectedCategory ?.id == item.id) ? COLORS.tortilla : COLORS.black,
+                            ...FONTS.body5
+                        }}
+                    >
+                        {item.name}
+                    </Text>
+                </TouchableOpacity>
+            )
+        }
+
+        return (
+            <View style={{ padding: SIZES.padding * 2 }}>
+                <Text style={{ ...FONTS.h1 }}>Main</Text>
+                <Text style={{ ...FONTS.h2 }}>Categories</Text> 
+
+                <FlatList 
+                    data={categories}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    keyExtractor={item => '${item.id}'}
+                    renderItem={renderItem}
+                    contentContainerStyle={{ paddingVertical: SIZES.padding * 2 }}
+                />
+            </View>
+        )
+    }
+
+  function renderRestaurantList() {
+    const renderItem = ({ item }) => (
+        <TouchableOpacity
+            style={{ marginBottom: SIZES.padding * 2 }}
+            onPress={() => navigation.navigate("recipe", {
+                item,
+            })}
+        >
+            {/* Image */}
+            <View
+                style={{
+                    marginBottom: SIZES.padding
+                }}
+            >
+                <Image
+                    source={item.photo}
+                    resizeMode="cover"
+                    style={{
+                        width: "100%",
+                        height: 200,
+                        borderRadius: SIZES.radius
+                    }}
+                />
+
+                <View
+                    style={{
+                        position: 'absolute',
+                        bottom: 0,
+                        height: 50,
+                        width: SIZES.width * 0.4,
+                        backgroundColor: COLORS.tortilla,
+                        borderTopRightRadius: SIZES.radius,
+                        borderBottomLeftRadius: SIZES.radius,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        ...styles.shadow
+                    }}
+                >
+                    <Text style={{ ...FONTS.h4 }}>{item.name}</Text>
+                </View>
+            </View>
+
+            {/* Restaurant Info */}
+            <Text style={{ marginLeft: 10, ...FONTS.body3 }}>{item.duration}</Text>
+            <Text style={{ marginLeft: 10, ...FONTS.body5}}>{item.details}</Text>
+
+            <View
+                style={{
+                    marginTop: SIZES.padding,
+                    flexDirection: 'row'
+                }}
+            >
+                {/* Rating */}
+
+
+                {/* Categories */}
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        marginLeft: 10
+                    }}
+                >
+                    {
+                        item.categories.map((categoryId) => {
+                            return (
+                                <View
+                                    style={{ flexDirection: 'row' }}
+                                    key={categoryId}
+                                >
+                                    <Text style={{ ...FONTS.body3 }}>{getCategoryNameById(categoryId)}</Text>
+                                    <Text style={{ ...FONTS.h3, color: COLORS.black }}> . </Text>
+                                </View>
+                            )
+                        })
+                    }
+                     {/* Price */}
+                     {
+                            [1, 2, 3].map((priceRating) => (
+                                    <Image
+                                         source={icons.like}
+                                         key={priceRating}
+                                         style={{
+                                             height: 20,
+                                             width: 20,
+                                             marginRight: 10,
+                                             tintColor: (priceRating <= item.priceRating) ? COLORS.rose : COLORS.prink,
+
+                                         }}
+                                    />
+                            ))
+                        }
+
+                </View>
+            </View>
+        </TouchableOpacity>
+        )
+
+        return (
+            <FlatList
+                data={restaurants}
+                keyExtractor={item => `${item.id}`}
+                renderItem={renderItem}
+                contentContainerStyle={{
+                    paddingHorizontal: SIZES.padding * 2,
+                    paddingBottom: 30
+                }}
+            />
+        )
+    }   
+
+    return (
+        <SafeAreaView style={styles.container}>
+            {renderHeader()}
+            {renderMainCategories()}
+            {renderRestaurantList()}
+            
+        </SafeAreaView>
+    )
+}
+
+const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        backgroundColor: COLORS.linen
+    }, 
+    shadow:{
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 3,
+        elevation: 1,
+    }
+})
+
+export default Home;

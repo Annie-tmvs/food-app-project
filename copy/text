@@ -1,0 +1,80 @@
+import React from 'react'
+import { View, Image, TouchableOpacity } from 'react-native'
+import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
+
+
+import { Home, recipe, search, bookmark } from "../screens"
+
+import { COLORS, icons } from "../constants"
+
+
+const Tab = createBottomTabNavigator();
+
+const tabs = () => {
+    return (
+        <Tab.Navigator 
+            tabBarOptions={{
+                showLabe: false,
+                style: {
+                    borderTopWidth: 0,
+                    backgroundColor: "transparent",
+                    elevation: 0,
+                }
+            }}
+        >
+            <Tab.Screen 
+                name="Home"
+                component={Home}
+                option={{
+                    tabBarTcon: ({ focused }) => (
+                        <Image 
+                            source={icons.cutlery}
+                            resizeMode="contain"
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: focused ? COLORS.rose : COLORS.tortilla
+                            }}
+                        />
+                    )
+                }}
+            />
+            <Tab.Screen 
+                name="search"
+                component={search}
+                option={{
+                    tabBarTcon: ({ focused }) => (
+                        <Image 
+                            source={icons.search}
+                            resizeMode="contain"
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: focused ? COLORS.rose : COLORS.tortilla
+                            }}
+                        />
+                    )
+                }}
+            />
+            <Tab.Screen 
+                name="bookmark"
+                component={bookmark}
+                option={{
+                    tabBarTcon: ({ focused }) => (
+                        <Image 
+                            source={icons.like}
+                            resizeMode="contain"
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: focused ? COLORS.rose : COLORS.tortilla
+                            }}
+                        />
+                    )
+                }}
+            />
+        </Tab.Navigator>
+    )
+}
+
+export default tabs
