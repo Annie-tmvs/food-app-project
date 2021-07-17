@@ -134,14 +134,7 @@ const recipe = ({ route, navigation }) => {
 
     function renderFoodInfo() {
         return (
-            <Animated.ScrollView 
-                horizontal
-                pagingEnabled
-                scrollEventThrottle={16}
-                snapToAlignment="center"
-                showsHorizontalScrollIndicator={false}
-                //onScroll
-            >
+            <View >
                 {
                     restaurant?.menu.map((item, index) => (
                         <View
@@ -163,40 +156,30 @@ const recipe = ({ route, navigation }) => {
                         </View>
                     ))
                 }
-            </Animated.ScrollView>
+            </View>
         )
     }
 
     function renderPreparation() {
         return (
-            <ScrollView>                {
+            <ScrollView>                
+            {
                     restaurant?.menu.map((item, index) => (
                         <View
                             key={'menu-${index}'}
                             style={{ alignItems: 'center' }}
                         >                            
-                            {/* description */}
-                            <View
-                                style={{
-                                    width: SIZES.width,
-                                    alignItems: 'center',
-                                    paddingHorizontal: SIZES.padding * 2,
-                                    marginTop: 15,
-                                }}
-                            >
-                                <Text style={{ textAlign:'center',...FONTS.body3,marginHorizontal: 10 }}>{item.detail}</Text>
-                            </View>
-
                             {/* Ingredients */}
                             <View
                                 style={{
                                     width: SIZES.width,
                                     alignItems: 'center',
-                                    marginTop: 10,
                                     paddingHorizontal: SIZES.padding * 2,
                                 }}
-                            > 
-                                <Text style={{ marginVertical: 10, textAlign: 'center',  ...FONTS.h1}}>Ingredients</Text>
+                            >                                 
+                                <Text style={{ textAlign:'center',...FONTS.body3,marginTop: 25 }}>{item.detail}</Text>
+
+                                <Text style={{ marginVertical: 20, textAlign: 'center',  ...FONTS.h1}}>Ingredients</Text>
                                 <Text style={{ textAlign: 'center',  ...FONTS.body3 }}>{item.ingredient}<br/></Text>
                             </View>
 
@@ -206,11 +189,12 @@ const recipe = ({ route, navigation }) => {
                                     alignItems: 'center',
                                     paddingHorizontal: SIZES.padding * 2,
                                     height:'auto',
-                                    marginVertical: 10,
+                                    marginVertical: 20,
+
                                 }}
                             >
                                 <Text style={{  textAlign: 'center',  ...FONTS.h1}}>Preparation</Text>
-                                <Text style={{ marginHorizontal: 15, textAlign: 'auto',  ...FONTS.body3 }}>{item.description}</Text>
+                                <Text style={{ marginHorizontal: '5%', textAlign: 'auto',  ...FONTS.body3 }}>{item.description}</Text>
                             </View>
 
                         </View>
