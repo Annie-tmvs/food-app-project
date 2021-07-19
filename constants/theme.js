@@ -51,16 +51,16 @@ export const SIZES = {
 };
 
 export const FONTS = {
-    largeTitle: { fontFamily: "Lao_Handwriting", fontSize: SIZES.largeTitle, lineHeight: 55 },
-    h1: { fontFamily: "Lao_Handwriting", fontSize: SIZES.h1, lineHeight: 36 },
-    h2: { fontFamily: "Lao_Handwriting", fontSize: SIZES.h2, lineHeight: 30 },
-    h3: { fontFamily: "Lao_Handwriting", fontSize: SIZES.h3, lineHeight: 22 },
-    h4: { fontFamily: "Lao_Handwriting", fontSize: SIZES.h4, lineHeight: 22 },
-    body1: { fontFamily: "Lao_Handwriting", fontSize: SIZES.body1, lineHeight: 36 },
-    body2: { fontFamily: "Lao_Handwriting", fontSize: SIZES.body2, lineHeight: 30 },
-    body3: { fontFamily: "Lao_Handwriting", fontSize: SIZES.body3, lineHeight: 22 },
-    body4: { fontFamily: "Lao_Handwriting", fontSize: SIZES.body4, lineHeight: 22 },
-    body5: { fontFamily: "Lao_Handwriting", fontSize: SIZES.body5, lineHeight: 22 },
+    largeTitle: {  fontSize: SIZES.largeTitle, lineHeight: 55 },
+    h1: { fontSize: SIZES.h1, lineHeight: 36 },
+    h2: { fontSize: SIZES.h2, lineHeight: 30 },
+    h3: { fontSize: SIZES.h3, lineHeight: 22 },
+    h4: { fontSize: SIZES.h4, lineHeight: 22 },
+    body1: { fontSize: SIZES.body1, lineHeight: 36 },
+    body2: {  fontSize: SIZES.body2, lineHeight: 30 },
+    body3: { fontSize: SIZES.body3, lineHeight: 22 },
+    body4: { fontSize: SIZES.body4, lineHeight: 22 },
+    body5: { fontSize: SIZES.body5, lineHeight: 22 },
 };
 
 const appTheme = { COLORS, SIZES, FONTS };

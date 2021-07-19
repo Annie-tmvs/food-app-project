@@ -335,7 +335,7 @@ const Home = ({navigation}) => {
 
     function renderHeader() {
         return(
-            <View>
+            <View style={{ paddingTop:0, }}>
             <View style={{ flexDirection: 'row', height: 50,marginTop:25}}>
                 <View
                     style={{
@@ -510,7 +510,7 @@ const Home = ({navigation}) => {
                         position: 'absolute',
                         bottom: 0,
                         height: 50,
-                        width: SIZES.width * 0.4,
+                        width: "50%",
                         backgroundColor: COLORS.tortilla,
                         borderTopRightRadius: SIZES.radius2,
                         borderBottomLeftRadius: SIZES.radius1,
@@ -523,8 +523,8 @@ const Home = ({navigation}) => {
                         source={icons.star}
                         resizeMode="contain"
                         style={{
-                            width: 20,
-                            height: 20,
+                            width: 15,
+                            height: 15,
                             marginRight:10,
                            tintColor: COLORS.l_yellow,
                         }}

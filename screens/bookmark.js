@@ -7,15 +7,12 @@ import {
     Text,
     TouchableOpacity,
     Image,
-    Animated,
-    ScrollView,
     Pressable,
-    TextInput
 } from 'react-native'
 
 import { icons, COLORS, SIZES, FONTS } from '../constants'
 
-const bookmark = ( { navigation  } ) => {
+const bookmark = ({navigation}) => {
 
 
     function renderHeader() {
@@ -55,7 +52,6 @@ const bookmark = ( { navigation  } ) => {
                         style={{
                             width: 20,
                             height: 20,
-                           // tintColor: COLORS.rose
                         }}
                     />
                 </Pressable>
@@ -92,7 +88,6 @@ const bookmark = ( { navigation  } ) => {
                         style={{
                             width: 20,
                             height: 20,
-                           // tintColor: COLORS.rose
                         }}
                     />
                     
@@ -106,6 +101,7 @@ function renderShelf () {
     return(
         <View 
             style={{
+                flex: 1,
                 paddingHorizontal:SIZES.padding * 2,
             }}
         >  
@@ -120,7 +116,6 @@ function renderShelf () {
         <View style={{
             paddingHorizontal:SIZES.padding ,
             paddingVertical: 5,
-            flex:1,
             flexDirection: 'row',
             justifyContent:'center',
         }}>
@@ -135,6 +130,7 @@ function renderShelf () {
                     marginRight: 5,
                 }}
             >
+                
                 <Image source={icons.plus}
                     style={{
                         height: 45,
@@ -154,6 +150,15 @@ function renderShelf () {
                         alignItems: 'center',
                     }}
             >
+                <TouchableOpacity style={{ paddingLeft: "80%", }}>
+                <Image source={icons.dustbin}
+                    style={{
+                        height:20,
+                        width:20,
+                        
+                    }}
+                />  
+                </TouchableOpacity>                 
                 <Image source={icons.cakes}
                     style={{
                         height: 45,
@@ -167,7 +172,6 @@ function renderShelf () {
 
            <View style={{
             paddingHorizontal:SIZES.padding,
-            flex:1,
             flexDirection: 'row',
         }}>
            <TouchableOpacity
@@ -181,6 +185,16 @@ function renderShelf () {
                     marginRight: 5,
                 }}
             >
+                <TouchableOpacity style={{ paddingLeft: "80%", }}>
+                <Image source={icons.dustbin}
+                    style={{
+                        height:20,
+                        width:20,
+                        
+                    }}
+                />  
+                </TouchableOpacity> 
+
                 <Image source={icons.cookie}
                     style={{
                         height: 45,

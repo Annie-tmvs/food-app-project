@@ -29,6 +29,7 @@ export const plus = require('../assets/icons/plus.png');
 export const cakes = require('../assets/icons/cakes.png');
 export const cookie = require("../assets/icons/cookie.png");
 export const flaticon = require("../assets/icons/flaticon.png");
+export const dustbin= require("../assets/icons/delete.png");
 
 export default {
  //tools
@@ -65,4 +66,5 @@ export default {
     strawberry,
     plus,
     flaticon,
+    dustbin,
 }

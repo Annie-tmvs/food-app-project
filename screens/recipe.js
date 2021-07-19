@@ -16,47 +16,8 @@ import { icons, COLORS, SIZES, FONTS } from '../constants'
 
 const recipe = ({ route, navigation }) => {
 
-    const categoryData = [
-        {
-            id: 1,
-            name: "All",
-            icon: icons.bakery,
-        },
-        {
-            id: 2,
-            name: "Cake",
-            icon: icons.cake,
-        },
-        {
-            id: 3,
-            name: "Brownies",
-            icon: icons.brownie,
-        },
-        {
-            id: 4,
-            name: "Cookies",
-            icon: icons.cookies,
-        },
-        {
-            id: 5,
-            name: "Cupcakes",
-            icon: icons.cupcake,
-        },
-        {
-            id: 6,
-            name: "Donut",
-            icon: icons.donut,
-        },
-        {
-            id: 7,
-            name: "Roll Cake",
-            icon: icons.roll,
-        },
-    ]
 
 
-
-    const scrollX = new Animated.Value(0);
     const [restaurant, setRestaurant] = React.useState(null);
 
     React.useEffect(() => {
@@ -88,7 +49,6 @@ const recipe = ({ route, navigation }) => {
                         style={{
                             width: 20,
                             height: 20,
-                           // tintColor: COLORS.rose
                         }}
                     />
                 </TouchableOpacity>
@@ -141,7 +101,7 @@ const recipe = ({ route, navigation }) => {
                             key={'menu-${index}'}
                             style={{ alignItems: 'center' }}
                         >
-                            <View style={{ height: SIZES.height * 0.5 ,}}>
+                            <View style={{ height: SIZES.height * 0.4 ,}}>
                                 {/* food image */}
                                 <Image 
                                     source={item.photo}
@@ -180,7 +140,7 @@ const recipe = ({ route, navigation }) => {
                                 <Text style={{ textAlign:'center',...FONTS.body3,marginTop: 25 }}>{item.detail}</Text>
 
                                 <Text style={{ marginVertical: 20, textAlign: 'center',  ...FONTS.h1}}>Ingredients</Text>
-                                <Text style={{ textAlign: 'center',  ...FONTS.body3 }}>{item.ingredient}<br/></Text>
+                                <Text style={{ textAlign: 'center',  ...FONTS.body3 }}>{item.ingredient}</Text>
                             </View>
 
                             <View
