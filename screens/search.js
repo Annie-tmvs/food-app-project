@@ -16,7 +16,7 @@ const search = ({navigation}) => {
 
     function  renderHeader() {
         return(
-            <View style={{ flexDirection:'row', height: 50, backgroundColor:COLORS.daisy}}>
+            <View style={{ flexDirection:'row', height: 50, backgroundColor:COLORS.tortilla}}>
                 <TouchableOpacity
                     style={{
                         backgroundColor: COLORS.tortilla,
