@@ -248,7 +248,7 @@ const Home = ({navigation}) => {
                     {
                         menuId: 1,
                         name: "Cocoa Brownie with Chocolate Chips",
-                        photo: images.brownies,
+                        photo: images.cupcake,
                         detail: "",
                         icon: icons.star,
                         ingredient:['ເນີຍເຄັມ - 120 ກຣາມ'+'\n'+
