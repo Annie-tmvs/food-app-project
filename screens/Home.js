@@ -62,7 +62,7 @@ const Home = ({navigation}) => {
                 priceRating: affordable,
                 photo: images.banana_cake,
                 duration: "ເຄັກກ້ວຍຫອມ",
-                details:"",
+                details:"ເຄັກກວ້ຍຫອມ ນຸ້ມຟູ, ຫວານນ້ອຍ ເຮັດງ່າຍບໍ່ຕ້ອງໃຊ້ເຕົາອົບ",
 
                 menu: [
                     {
@@ -97,7 +97,7 @@ const Home = ({navigation}) => {
                 priceRating: fairPrice,
                 photo: images.taiwan_cake,
                 duration: "ເຄັກໄຂ່ໄຕ້ຫວັນ",
-                details:"",
+                details:"ເຄັກໄຂ່ ສູດແປ້ງນຸ້ມຟູ ແລະ ເບົາເຮັດງ່າຍໃຊ້ອຸປະກອນໃນຄົວກໍ່ເຮັດໄດ້",
 
                 menu: [
                     {
@@ -170,7 +170,7 @@ const Home = ({navigation}) => {
                 priceRating: expensive,
                 photo: images.donut2,
                 duration: "ໂດນັດ",
-                details:"",
+                details:"ໂດນັດເຄືອບດ້ວຍນ້ຳຕານ(krispy kreme homemade)ສູດໂດນັດບໍ່ຕ້ອງການເຄື່ອງຕີ, ບໍ່ຕ້ອງການເຕົາອົບ, ນູ້ມເບົາ ແລະ ແຊບຄືກັບໂດນັດຮ້ານດັງ.",
 
                 menu: [
                     {
@@ -206,12 +206,12 @@ const Home = ({navigation}) => {
                 priceRating: expensive,
                 photo: images.cookies,
                 duration: "",
-                details:"",
+                details:"ຄຸກກີ້ເນື້ອນຸບນັບເຂັ້ມຂົ້ນດ້ວຍຊ໊ອກໂກ້ແລັດ ແລະ ຊ໊ອກໂກ້ແລັດຊິບ",
 
                 menu: [
                     {
                         menuId: 1,
-                        name: "Cocoa Brownie with Chocolate Chips",
+                        name: "Cookies",
                         photo: images.brownies,
                         detail: "",
                         icon: icons.star,
@@ -242,12 +242,12 @@ const Home = ({navigation}) => {
                 priceRating: expensive,
                 photo: images.cupcake,
                 duration: "",
-                details:"",
+                details:"ຄັບເຄັກ red velvet ເນື້ອນຸ້ມ, ເນື້ອຄີມນຽນນຸ້ມຫວານໜ້ອຍ",
 
                 menu: [
                     {
                         menuId: 1,
-                        name: "Cocoa Brownie with Chocolate Chips",
+                        name: "Cupcakes red velvet",
                         photo: images.cupcake,
                         detail: "",
                         icon: icons.star,
@@ -278,12 +278,12 @@ const Home = ({navigation}) => {
                 priceRating: expensive,
                 photo: images.roll,
                 duration: "",
-                details:"",
+                details:"Roll cake ຊ໊ອກໂກ້ແລັດ, ແປ້ງເນື້ອນຸ້ມລົດຊ໊ອກໂກ້ແລັດສອດໄສ້ຄີມສົດ",
 
                 menu: [
                     {
                         menuId: 1,
-                        name: "Cocoa Brownie with Chocolate Chips",
+                        name: "Roll Cake",
                         photo: images.roll,
                         detail: "",
                         icon: icons.star,
